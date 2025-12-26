@@ -7,12 +7,10 @@ def generate_unique_code():
     length = 8
 
     while True:
-        code= "".join(random.choices(string.ascii_uppercase, k=length))
-        if not Room.objects.filter(code=code).count() == 0:
+        code = "".join(random.choices(string.ascii_uppercase, k=length))
+        if not Room.objects.filter(code=code).exists():
+            return code
 
-            break
-
-    return code
 
 # Create your models here.
 
